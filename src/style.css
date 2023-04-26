@@ -1,0 +1,6 @@
+@import './reset.css';
+
+/* Preferred reset */
+* {
+  box-sizing: border-box;
+}
