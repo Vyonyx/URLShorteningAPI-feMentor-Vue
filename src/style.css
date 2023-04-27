@@ -5,10 +5,13 @@
 * {
   box-sizing: border-box;
   font-size: 18px;
-  font-family: 'Poppins', sans-serif;
 }
 
 :root {
+  /* ------ Font ------  */
+  font-family: 'Poppins', sans-serif;
+  font-size: 500;
+  
   /* ------ Colors ------  */
   /* Primary */
   --cyan: hsl(180, 66%, 49%);
