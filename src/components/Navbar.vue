@@ -78,20 +78,7 @@ header {
 
           a {
             color: inherit;
-          }
-
-          button {
-            border: transparent;
-            background: transparent;
-            padding: 0.5rem 1.25rem;
-            cursor: pointer;
-            color: inherit;
-          }
-
-          .sign-up {
-            background: var(--cyan);
-            color: white;
-            border-radius: 1rem;
+            text-decoration: none;
           }
         }
       }
