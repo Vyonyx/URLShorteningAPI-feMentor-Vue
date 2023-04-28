@@ -50,6 +50,7 @@ header {
 
   .hamburger {
     display: block;
+    cursor: pointer;
 
     svg {
       fill: var(--gray);
@@ -77,7 +78,6 @@ header {
 
           a {
             color: inherit;
-            text-decoration: none;
           }
 
           button {
