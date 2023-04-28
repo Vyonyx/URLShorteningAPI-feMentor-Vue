@@ -7,7 +7,15 @@ import Container from "./Container.vue"
     <header>
       <h3 class="logo">Shortly</h3>
 
-      <nav>
+      <nav class="hamburger">
+        <svg viewBox="0 0 100 80" width="40" height="40">
+          <rect width="80" height="10"></rect>
+          <rect y="30" width="80" height="10"></rect>
+          <rect y="60" width="80" height="10"></rect>
+        </svg>
+      </nav>
+
+      <nav class="desktop-links">
         <ul>
           <li><a href="#">Features</a></li>
           <li><a href="#">Pricing</a></li>
@@ -27,7 +35,7 @@ import Container from "./Container.vue"
 header {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  justify-content: space-between;
   color: var(--very-dark-violet);
 
   .logo {
@@ -36,43 +44,66 @@ header {
     cursor: pointer;
   }
 
-  nav {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
+  .desktop-links {
+    display: none;
+  }
 
-    ul {
-      display: flex;
-      gap: 1.5rem;
+  .hamburger {
+    display: block;
 
-      li {
-        cursor: pointer;
-        color: var(--gray);
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        button {
-          border: transparent;
-          background: transparent;
-          padding: 0.5rem 1.25rem;
-          cursor: pointer;
-          color: inherit;
-        }
-      }
-    }
-
-    .nav-buttons {
-      margin-left: auto;
+    svg {
+      fill: var(--gray);
     }
   }
 }
 
-.sign-up {
-  background: var(--cyan);
-  color: white;
-  border-radius: 1rem;
+@media (min-width: 1440px) {
+  header {
+    gap: 3rem;
+    justify-content: start;
+
+    .desktop-links {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+
+      ul {
+        display: flex;
+        gap: 1.5rem;
+
+        li {
+          cursor: pointer;
+          color: var(--gray);
+
+          a {
+            color: inherit;
+            text-decoration: none;
+          }
+
+          button {
+            border: transparent;
+            background: transparent;
+            padding: 0.5rem 1.25rem;
+            cursor: pointer;
+            color: inherit;
+          }
+
+          .sign-up {
+            background: var(--cyan);
+            color: white;
+            border-radius: 1rem;
+          }
+        }
+      }
+
+      .nav-buttons {
+        margin-left: auto;
+      }
+    }
+
+    .hamburger {
+      display: none;
+    }
+  }
 }
 </style>
