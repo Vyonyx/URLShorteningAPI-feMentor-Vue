@@ -10,6 +10,19 @@
 
 <style scoped lang="scss">
 section {
-  padding: 1rem 10rem;
+  --padding-amount: 2rem;
+  padding: var(--padding-amount);
+}
+
+@media (min-width: 500px) {
+  section {
+    padding: var(--padding-amount) 5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  section {
+    padding: var(--padding-amount) 10rem;
+  }
 }
 </style>
