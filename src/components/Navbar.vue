@@ -1,5 +1,12 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import Container from "./Container.vue"
+
+let mobileMenuOpen = ref(false)
+
+function toggleMobileMenu() {
+  mobileMenuOpen.value = !mobileMenuOpen.value
+}
 </script>
 
 <template>
@@ -7,12 +14,25 @@ import Container from "./Container.vue"
     <header>
       <h3 class="logo">Shortly</h3>
 
-      <nav class="hamburger">
+      <nav @click="toggleMobileMenu" class="hamburger">
         <svg viewBox="0 0 100 80" width="40" height="40">
           <rect width="80" height="10"></rect>
           <rect y="30" width="80" height="10"></rect>
           <rect y="60" width="80" height="10"></rect>
         </svg>
+
+        <nav class="mobile-menu" v-if="mobileMenuOpen">
+          <ul>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Resources</a></li>
+          </ul>
+          <div class="horizontal-divider"></div>
+          <ul>
+            <li><button>Login</button></li>
+            <li><button class="sign-up">Sign Up</button></li>
+          </ul>
+        </nav>
       </nav>
 
       <nav class="desktop-links">
@@ -55,7 +75,75 @@ header {
     svg {
       fill: var(--gray);
     }
+
+    .mobile-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      position: absolute;
+      top: 6rem;
+      right: 1rem;
+      width: calc(100% - 2rem);
+      color: white;
+      background: var(--dark-violet);
+      padding: 2rem 0;
+      border-radius: 1rem;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        font-weight: 700;
+        gap: inherit;
+        width: 100%;
+
+        li {
+          color: white;
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          flex-grow: 1;
+          padding: 0 2rem;
+
+          a {
+            color: inherit;
+          }
+
+          button {
+            font-weight: 700;
+          }
+
+          .sign-up {
+            width: 100%;
+            max-width: 15rem;
+            margin-top: -1rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 2rem;
+          }
+        }
+      }
+
+      .horizontal-divider {
+        background: var(--gray);
+        width: 80%;
+        height: 1px;
+      }
+    }
   }
+}
+
+button {
+  border: transparent;
+  background: transparent;
+  padding: 0.5rem 1.25rem;
+  cursor: pointer;
+  color: inherit;
+}
+
+.sign-up {
+  background: var(--cyan);
+  color: white;
+  border-radius: 1rem;
 }
 
 @media (min-width: 1440px) {
