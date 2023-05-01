@@ -14,9 +14,9 @@ section {
   padding: var(--padding-amount);
 }
 
-@media (min-width: 500px) {
+@media (min-width: 420px) {
   section {
-    padding: var(--padding-amount) 5rem;
+    padding: var(--padding-amount) 3rem;
   }
 }
 
