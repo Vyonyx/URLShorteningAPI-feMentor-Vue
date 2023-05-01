@@ -40,6 +40,7 @@ import Container from './Container.vue';
     text-align: center;
     font-size: 2.5rem;
     font-weight: 700;
+    color: var(--very-dark-violet);
   }
 
   .hero-paragraph {
