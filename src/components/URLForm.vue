@@ -15,6 +15,17 @@ import Container from './Container.vue'
 .container {
   display: flex;
   justify-content: center;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 50%;
+    bottom: 0;
+    left: 0;
+    background: var(--light-gray);
+  }
 }
 
 .url-form {
