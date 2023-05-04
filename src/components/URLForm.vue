@@ -3,7 +3,7 @@ import Container from './Container.vue'
 </script>
 
 <template>
-  <Container>
+  <Container class="container">
     <form class="url-form">
       <input type="text" placeholder="Shorten a link here...">
       <button>Shorten it!</button>
@@ -12,6 +12,11 @@ import Container from './Container.vue'
 </template>
 
 <style scoped lang="scss">
+.container {
+  display: flex;
+  justify-content: center;
+}
+
 .url-form {
   position: relative;
   display: flex;
@@ -20,6 +25,8 @@ import Container from './Container.vue'
   gap: 1rem;
   background: var(--dark-violet);
   border-radius: 1rem;
+  max-width: 800px;
+  flex-grow: 1;
 
   &::before {
     position: absolute;
