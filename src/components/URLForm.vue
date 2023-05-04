@@ -53,4 +53,26 @@ import Container from './Container.vue'
     font-weight: 700;
   }
 }
+
+@media (min-width: 1440px) {
+  .url-form {
+    flex-direction: row;
+    padding: 3rem;
+    border-radius: 10px;
+
+    &::before {
+      background-image: url('/bg-shorten-desktop.svg');
+      background-position: top right;
+      background-size: cover;
+    }
+
+    input {
+      flex-grow: 1;
+    }
+
+    button {
+      padding: 1rem 2rem;
+    }
+  }
+}
 </style>
