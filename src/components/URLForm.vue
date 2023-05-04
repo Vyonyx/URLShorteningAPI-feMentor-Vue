@@ -50,10 +50,6 @@ import Container from './Container.vue'
     padding: 1rem;
   }
 
-  input {
-    color: red;
-  }
-
   button {
     background: var(--cyan);
     color: white;
