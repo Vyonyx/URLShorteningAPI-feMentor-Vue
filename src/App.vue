@@ -2,6 +2,7 @@
 import Navbar from "./components/Navbar.vue"
 import Hero from "./components/Hero.vue"
 import URLForm from "./components/URLForm.vue"
+import Statistics from "./components/Statistics.vue"
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import URLForm from "./components/URLForm.vue"
     <Navbar />
     <Hero />
     <URLForm />
+    <Statistics />
   </div>
 </template>
 
