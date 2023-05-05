@@ -27,6 +27,7 @@ defineProps<{
   border-radius: 5px;
   padding: 2rem;
   padding-top: var(--symbol-size);
+  height: fit-content;
 }
 
 .symbol {
@@ -63,5 +64,20 @@ defineProps<{
 .title,
 .description {
   text-align: center;
+}
+
+@media (min-width: 1440px) {
+  .stat-card {
+    max-width: 400px;
+  }
+
+  .symbol {
+    left: 4rem;
+  }
+
+  .title,
+  .description {
+    text-align: start;
+  }
 }
 </style>

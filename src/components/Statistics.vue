@@ -77,4 +77,41 @@ const cardContent = ref([
   left: 50%;
   transform: translateX(-50%);
 }
+
+@media (min-width: 1440px) {
+  .container {
+    padding-bottom: 80px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .description {
+    max-width: 500px;
+  }
+
+  .card-container {
+    --card-top-margin: 2rem;
+
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .stat-card:nth-child(3) {
+    margin-top: var(--card-top-margin);
+  }
+
+  .stat-card:last-child {
+    margin-top: calc(var(--card-top-margin) * 2);
+  }
+
+  .connecting-bar {
+    width: 100%;
+    height: 10px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
 </style>
