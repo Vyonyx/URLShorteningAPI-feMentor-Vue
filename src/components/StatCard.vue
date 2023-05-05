@@ -18,11 +18,6 @@ defineProps<{
 </template>
 
 <style scoped lang="scss">
-.placeholder {
-  top: calc(calc(var(--symbol-size) * -0.5) - calc(var(--card-top-offset) * 0.5));
-  padding-top: calc(calc(var(--symbol-size) * 0.5) + var(--card-top-offset));
-}
-
 .card {
   --symbol-size: 80px;
   --card-top-offset: 2rem;
