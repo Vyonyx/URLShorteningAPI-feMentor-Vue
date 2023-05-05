@@ -28,6 +28,7 @@ const cardContent = ref([
     <p class="description">Track how your links are performing across the web with our advanced statistics dashboard.</p>
 
     <div class="card-container">
+      <div class="connecting-bar"></div>
       <StatCard class="stat-card" v-for="{ title, description, icon } in cardContent" :title="title"
         :description="description" :icon="icon" />
     </div>
@@ -65,20 +66,15 @@ const cardContent = ref([
   flex-direction: column;
   gap: var(--card-gap);
   margin: 3rem 0;
+  position: relative;
 }
 
-.stat-card+.stat-card {
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 10px;
-    height: var(--card-gap);
-    background: var(--cyan);
-  }
+.connecting-bar {
+  width: 10px;
+  height: 100%;
+  background: var(--cyan);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 </style>
