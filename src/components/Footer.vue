@@ -81,4 +81,27 @@ import Container from './Container.vue'
     gap: 1.5rem;
   }
 }
+
+@media (min-width: 1440px) {
+  .container {
+    flex-direction: row;
+    justify-content: end;
+    align-items: start;
+    gap: 5rem;
+  }
+
+  .footer-title {
+    flex-grow: 1;
+  }
+
+  .links-section {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .footer-links li {
+    align-self: start;
+  }
+}
 </style>
