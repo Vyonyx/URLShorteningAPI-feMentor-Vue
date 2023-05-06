@@ -39,4 +39,14 @@ import Container from './Container.vue'
   color: white;
   font-weight: 700;
 }
+
+@media (min-width: 1440px) {
+  .container {
+    background-image: url(/bg-boost-desktop.svg);
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}
 </style>
