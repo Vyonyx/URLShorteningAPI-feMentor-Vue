@@ -32,6 +32,10 @@ import Container from './Container.vue'
   padding: 1.25rem 3.5rem;
   border-radius: 2rem;
   cursor: pointer;
+
+  &:hover {
+    background: var(--light-cyan);
+  }
 }
 
 .title,
