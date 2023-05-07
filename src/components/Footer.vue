@@ -74,6 +74,10 @@ import Container from './Container.vue'
   li a {
     color: var(--grayish-violet);
     cursor: pointer;
+
+    &:hover {
+      color: var(--cyan);
+    }
   }
 
   .social-media-links {
