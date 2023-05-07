@@ -172,6 +172,10 @@ button {
           a {
             color: inherit;
             text-decoration: none;
+
+            &:hover {
+              color: var(--very-dark-violet);
+            }
           }
         }
       }
