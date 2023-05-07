@@ -144,6 +144,11 @@ button {
   background: var(--cyan);
   color: white;
   border-radius: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--light-cyan);
+  }
 }
 
 @media (min-width: 1440px) {
