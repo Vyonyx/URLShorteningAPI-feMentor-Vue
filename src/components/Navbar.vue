@@ -43,7 +43,7 @@ function toggleMobileMenu() {
         </ul>
 
         <ul class="nav-buttons">
-          <li><button>Login</button></li>
+          <li><button class="login">Login</button></li>
           <li><button class="sign-up">Sign Up</button></li>
         </ul>
       </nav>
@@ -188,6 +188,10 @@ button {
     .hamburger {
       display: none;
     }
+  }
+
+  .login:hover {
+    color: var(--cyan);
   }
 }
 </style>
