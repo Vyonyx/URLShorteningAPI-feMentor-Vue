@@ -43,7 +43,7 @@ function toggleMobileMenu() {
         </ul>
 
         <ul class="nav-buttons">
-          <li><button>Login</button></li>
+          <li><button class="login">Login</button></li>
           <li><button class="sign-up">Sign Up</button></li>
         </ul>
       </nav>
@@ -144,6 +144,11 @@ button {
   background: var(--cyan);
   color: white;
   border-radius: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--light-cyan);
+  }
 }
 
 @media (min-width: 1440px) {
@@ -167,6 +172,10 @@ button {
           a {
             color: inherit;
             text-decoration: none;
+
+            &:hover {
+              color: var(--very-dark-violet);
+            }
           }
         }
       }
@@ -179,6 +188,10 @@ button {
     .hamburger {
       display: none;
     }
+  }
+
+  .login:hover {
+    color: var(--cyan);
   }
 }
 </style>
