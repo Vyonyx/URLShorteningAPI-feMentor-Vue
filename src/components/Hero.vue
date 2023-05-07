@@ -57,6 +57,11 @@ import Container from './Container.vue';
     border-radius: 3rem;
     padding: 1rem 2.25rem;
     margin-top: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--light-cyan);
+    }
   }
 }
 
