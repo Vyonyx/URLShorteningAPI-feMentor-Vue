@@ -114,6 +114,14 @@ import Container from './Container.vue'
   .social-media-links {
     display: flex;
     gap: 1.5rem;
+
+    li a svg {
+      fill: white;
+
+      &:hover {
+        fill: var(--cyan);
+      }
+    }
   }
 }
 
