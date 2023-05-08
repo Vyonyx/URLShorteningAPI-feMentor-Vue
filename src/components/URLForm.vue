@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import Container from './Container.vue'
 
 const urlText = ref("");
+const existingShortenedUrls = ref<string[]>([]);
 
 async function urlApiRequest(e: Event) {
   e.preventDefault();
@@ -16,6 +17,8 @@ async function urlApiRequest(e: Event) {
   if (!data.ok) return;
 
   const shortenedURL = data.result.full_short_link;
+  existingShortenedUrls.value.push(shortenedURL);
+  urlText.value = "";
 }
 </script>
 
