@@ -2,8 +2,10 @@
 import { ref } from 'vue';
 import Container from './Container.vue'
 
+const savedURLS = JSON.parse(window.localStorage.getItem("savedURLS") || '[]');
+
 const urlText = ref("");
-const existingShortenedUrls = ref<string[]>([]);
+const existingShortenedUrls = ref<string[]>(savedURLS);
 
 async function urlApiRequest(e: Event) {
   e.preventDefault();
@@ -17,7 +19,11 @@ async function urlApiRequest(e: Event) {
   if (!data.ok) return;
 
   const shortenedURL = data.result.full_short_link;
-  existingShortenedUrls.value.push(shortenedURL);
+  existingShortenedUrls.value?.push(shortenedURL);
+
+  window.localStorage
+    .setItem("savedURLS", JSON.stringify(existingShortenedUrls))
+
   urlText.value = "";
 }
 </script>
