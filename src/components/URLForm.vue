@@ -1,11 +1,14 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import Container from './Container.vue'
+
+const urlText = ref("");
 </script>
 
 <template>
   <Container class="container">
     <form class="url-form">
-      <input type="text" placeholder="Shorten a link here...">
+      <input v-model="urlText" type="text" placeholder="Shorten a link here...">
       <button>Shorten it!</button>
     </form>
   </Container>
