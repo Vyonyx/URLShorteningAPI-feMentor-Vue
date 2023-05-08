@@ -3,11 +3,25 @@ import { ref } from 'vue';
 import Container from './Container.vue'
 
 const urlText = ref("");
+
+async function urlApiRequest(e: Event) {
+  e.preventDefault();
+  if (!urlText.value) return;
+
+  const response = await fetch("https://api.shrtco.de/v2/shorten?" + new URLSearchParams({ url: urlText.value }), {
+    method: "get",
+  })
+
+  const data = await response.json();
+  if (!data.ok) return;
+
+  const shortenedURL = data.result.full_short_link;
+}
 </script>
 
 <template>
   <Container class="container">
-    <form class="url-form">
+    <form @submit="e => urlApiRequest(e)" class="url-form">
       <input v-model="urlText" type="text" placeholder="Shorten a link here...">
       <button>Shorten it!</button>
     </form>
