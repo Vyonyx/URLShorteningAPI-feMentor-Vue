@@ -1,13 +1,55 @@
 <script setup lang="ts">
+import { onMounted, ref } from 'vue';
 import Container from './Container.vue'
+import UserLink from './UserLink.vue'
+
+interface UserUrls {
+  full: string;
+  shortened: string;
+}
+
+const urlText = ref("");
+const existingShortenedUrls = ref<UserUrls[]>();
+
+onMounted(() => {
+  const savedURLS = JSON.parse(window.localStorage.getItem("savedURLS") || '[]');
+  existingShortenedUrls.value = savedURLS._rawValue || [];
+})
+
+async function urlApiRequest(e: Event) {
+  e.preventDefault();
+  if (!urlText.value) return;
+
+  const response = await fetch("https://api.shrtco.de/v2/shorten?" + new URLSearchParams({ url: urlText.value }), {
+    method: "get",
+  })
+
+  const data = await response.json();
+  if (!data.ok) return;
+
+  const shortenedURL = data.result.full_short_link;
+  const urlData: UserUrls = { full: urlText.value, shortened: shortenedURL };
+  existingShortenedUrls.value?.push(urlData);
+
+  window.localStorage
+    .setItem("savedURLS", JSON.stringify(existingShortenedUrls))
+
+  urlText.value = "";
+}
 </script>
 
 <template>
   <Container class="container">
-    <form class="url-form">
-      <input type="text" placeholder="Shorten a link here...">
+    <form @submit="e => urlApiRequest(e)" class="url-form">
+      <input v-model="urlText" type="text" placeholder="Shorten a link here...">
       <button>Shorten it!</button>
     </form>
+  </Container>
+
+  <Container class="url-container">
+    <ul>
+      <UserLink v-for="{ full, shortened } in existingShortenedUrls" :full="full" :shortened="shortened" />
+    </ul>
   </Container>
 </template>
 
@@ -25,6 +67,17 @@ import Container from './Container.vue'
     bottom: 0;
     left: 0;
     background: var(--light-gray);
+  }
+}
+
+.url-container {
+  padding-top: 0;
+  background: var(--light-gray);
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 }
 
@@ -87,6 +140,10 @@ import Container from './Container.vue'
     button {
       padding: 1rem 2rem;
     }
+  }
+
+  .url-container ul {
+    align-items: center;
   }
 }
 </style>
