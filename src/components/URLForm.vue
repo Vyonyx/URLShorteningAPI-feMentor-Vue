@@ -1,16 +1,20 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import Container from './Container.vue'
+import UserLink from './UserLink.vue'
 
 interface UserUrls {
   full: string;
   shortened: string;
 }
 
-const savedURLS = JSON.parse(window.localStorage.getItem("savedURLS") || '[]');
-
 const urlText = ref("");
-const existingShortenedUrls = ref<UserUrls[]>(savedURLS);
+const existingShortenedUrls = ref<UserUrls[]>();
+
+onMounted(() => {
+  const savedURLS = JSON.parse(window.localStorage.getItem("savedURLS") || '[]');
+  existingShortenedUrls.value = savedURLS._rawValue || [];
+})
 
 async function urlApiRequest(e: Event) {
   e.preventDefault();
