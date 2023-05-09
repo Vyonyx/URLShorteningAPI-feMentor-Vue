@@ -45,6 +45,12 @@ async function urlApiRequest(e: Event) {
       <button>Shorten it!</button>
     </form>
   </Container>
+
+  <Container class="url-container">
+    <ul>
+      <UserLink v-for="{ full, shortened } in existingShortenedUrls" :full="full" :shortened="shortened" />
+    </ul>
+  </Container>
 </template>
 
 <style scoped lang="scss">
@@ -61,6 +67,17 @@ async function urlApiRequest(e: Event) {
     bottom: 0;
     left: 0;
     background: var(--light-gray);
+  }
+}
+
+.url-container {
+  padding-top: 0;
+  background: var(--light-gray);
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 }
 
