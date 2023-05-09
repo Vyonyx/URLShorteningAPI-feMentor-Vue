@@ -63,4 +63,31 @@ p {
     background: var(--light-cyan);
   }
 }
+
+@media (min-width: 1440px) {
+  .item {
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    max-width: 800px;
+    width: 100%;
+
+    .full-link {
+      flex-grow: 1;
+      max-width: 40%;
+      margin-right: auto;
+    }
+
+    .copy-btn {
+      margin-bottom: 0;
+      width: 120px;
+    }
+  }
+
+  .horizontal-divider {
+    display: none;
+  }
+}
 </style>

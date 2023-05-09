@@ -141,5 +141,9 @@ async function urlApiRequest(e: Event) {
       padding: 1rem 2rem;
     }
   }
+
+  .url-container ul {
+    align-items: center;
+  }
 }
 </style>
