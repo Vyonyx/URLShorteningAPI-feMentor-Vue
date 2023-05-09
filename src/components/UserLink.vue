@@ -77,7 +77,7 @@ p {
   background: var(--dark-violet);
 
   &:hover {
-    background: var(--grayish-violet);
+    background: var(--dark-violet);
   }
 }
 
