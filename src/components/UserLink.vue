@@ -1,12 +1,21 @@
 <script setup lang="ts">
-defineProps<{
+const { shortened } = defineProps<{
   full: string;
   shortened: string;
 }>()
 
-function handleClick(e: Event) {
+async function handleClick(e: Event) {
+  const buttons = Array.from(document.getElementsByClassName("copy-btn"));
+  buttons.forEach(element => {
+    element.textContent = "Copy";
+    element.classList.remove("was-clicked");
+  });
+
+  await navigator.clipboard.writeText(shortened);
+
   const target = e.target as HTMLButtonElement;
-  target.innerText = "Copied";
+  target.textContent = "Copied";
+  target.classList.toggle("was-clicked");
 }
 </script>
 
@@ -61,6 +70,14 @@ p {
 
   &:hover {
     background: var(--light-cyan);
+  }
+}
+
+.was-clicked {
+  background: var(--dark-violet);
+
+  &:hover {
+    background: var(--dark-violet);
   }
 }
 
