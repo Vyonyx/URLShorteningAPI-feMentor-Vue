@@ -10,15 +10,24 @@ interface UserUrls {
 
 const urlText = ref("");
 const existingShortenedUrls = ref<UserUrls[]>();
+const validationError = ref(false);
 
 onMounted(() => {
   const savedURLS = JSON.parse(window.localStorage.getItem("savedURLS") || '[]');
   existingShortenedUrls.value = savedURLS._rawValue || [];
 })
 
+function inputValidation() {
+  validationError.value = false;
+
+  if (!urlText.value) return validationError.value = true;
+  if (urlText.value.length === 0) return validationError.value = true;
+}
+
 async function urlApiRequest(e: Event) {
   e.preventDefault();
-  if (!urlText.value) return;
+  const isInvalidInput = inputValidation();
+  if (isInvalidInput) return;
 
   const response = await fetch("https://api.shrtco.de/v2/shorten?" + new URLSearchParams({ url: urlText.value }), {
     method: "get",
@@ -41,7 +50,9 @@ async function urlApiRequest(e: Event) {
 <template>
   <Container class="container">
     <form @submit="e => urlApiRequest(e)" class="url-form">
-      <input v-model="urlText" type="text" placeholder="Shorten a link here...">
+      <input @input="inputValidation" :class="{ 'input-error': validationError }" v-model="urlText" type="text"
+        placeholder="Shorten a link here...">
+      <p v-if="validationError" class="error-msg">Please add a link</p>
       <button>Shorten it!</button>
     </form>
   </Container>
@@ -119,12 +130,29 @@ async function urlApiRequest(e: Event) {
     color: white;
     font-weight: 700;
   }
+
+  .input-error {
+    border: 2px solid red;
+    color: var(--red);
+
+    &::placeholder {
+      color: var(--red);
+      opacity: 0.75;
+    }
+  }
+
+  .error-msg {
+    color: var(--red);
+    font-size: 0.8rem;
+    z-index: 30;
+  }
 }
 
 @media (min-width: 1440px) {
   .url-form {
+    --form-padding: 3rem;
     flex-direction: row;
-    padding: 3rem;
+    padding: var(--form-padding);
     border-radius: 10px;
 
     &::before {
@@ -135,6 +163,15 @@ async function urlApiRequest(e: Event) {
 
     input {
       flex-grow: 1;
+    }
+
+    .error-msg {
+      position: absolute;
+      opacity: 0.75;
+      left: var(--form-padding);
+      bottom: 1.5rem;
+      ;
+      color: var(--red);
     }
 
     button {
