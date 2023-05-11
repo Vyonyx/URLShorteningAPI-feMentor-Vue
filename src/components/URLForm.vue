@@ -87,7 +87,7 @@ async function urlApiRequest(e: Event) {
 
   ul {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 2rem;
   }
 }
