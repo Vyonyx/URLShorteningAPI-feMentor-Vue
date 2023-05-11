@@ -2,22 +2,25 @@
 import { ref } from 'vue';
 import Container from './Container.vue'
 import StatCard from './StatCard.vue'
+import brandRecognitionIcon from '/icon-brand-recognition.svg';
+import detailedRecordsIcon from '/icon-detailed-records.svg';
+import fullyCustomizableIcon from '/icon-fully-customizable.svg';
 
 const cardContent = ref([
   {
     title: "Brand Recognition",
     description: "Boost your brand recognition with each click. Generic links don't mean a thing. Brand links help instil confidence in your content.",
-    icon: "/icon-brand-recognition.svg",
+    icon: brandRecognitionIcon,
   },
   {
     title: "Detailed Records",
     description: "Gain insights into who is clicking your links. Knowing when and where people engage with your content helps inform better decisions.",
-    icon: "/icon-detailed-records.svg",
+    icon: detailedRecordsIcon,
   },
   {
     title: "Fully Customizable",
     description: "Improve brand awareness and content discoverability through customizable links, superchargin audience engagement.",
-    icon: "/icon-fully-customizable.svg",
+    icon: fullyCustomizableIcon,
   }
 ])
 </script>
