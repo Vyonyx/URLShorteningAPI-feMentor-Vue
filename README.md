@@ -1,18 +1,66 @@
-# Vue 3 + TypeScript + Vite
+# Frontend Mentor - Shortly URL shortening API Challenge solution
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This is a solution to the [Shortly URL shortening API Challenge challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/url-shortening-api-landing-page-2ce3ob-G). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Recommended IDE Setup
+## Table of contents
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-## Type Support For `.vue` Imports in TS
+## Overview
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+### The challenge
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+Users should be able to:
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+- View the optimal layout for the site depending on their device's screen size
+- Shorten any valid URL
+- See a list of their shortened links, even after refreshing the browser
+- Copy the shortened link to their clipboard in a single click
+- Receive an error message when the `form` is submitted if:
+  - The `input` field is empty
+
+### Screenshot
+
+![](./screenshot.png)
+
+### Links
+
+- Solution URL: [GitHub repo](https://github.com/Vyonyx/URLShorteningAPI-feMentor-Vue)
+- Live Site URL: [Hosted on GitHub Pages](https://vyonyx.github.io/URLShorteningAPI-feMentor-Vue/)
+
+## My process
+
+### Built with
+
+- VueJS (Composition API)
+- Semantic HTML5 markup
+- SCSS
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [VueJS](https://nextjs.org/) - Javascript frontend framework
+- [ShrtCo.de](https://shrtco.de/docs) - Url shortening API
+
+### What I learned
+
+I could not find a Vue (framework) specific solution to dynamically add and remove a class (for styling). The specific challenge was removing the style class from all buttons within a list and applying the class to the most recently clicked button.
+
+I found myself having to use vanilla JavaScript and DOM manipulation to solve this problem. This experience reassured me that having base knowledge of JavaScript is valuable, no matter what framework I'm working in.
+
+### Continued development
+
+I would like to add delete buttons to the user's list of shortened urls so that they can remove items that are no longer relevant.
+
+## Author
+
+- Website - [Online Portfolio](https://portfolio-vyonyx.vercel.app/)
+- Frontend Mentor - [@Vyonyx](https://www.frontendmentor.io/profile/Vyonyx)
