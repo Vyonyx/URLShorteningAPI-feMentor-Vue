@@ -129,6 +129,11 @@ async function urlApiRequest(e: Event) {
     background: var(--cyan);
     color: white;
     font-weight: 700;
+
+    &:hover {
+      background: var(--light-cyan);
+      cursor: pointer;
+    }
   }
 
   .input-error {
